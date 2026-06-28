@@ -773,7 +773,17 @@ namespace Si_HeavyTeleporter
             if (driver != null && netComp != null)
                 netComp.SetPlayerOwner(driver);
 
-            try { _ = AudioHelper.PlaySoundFile(SoundFile); }
+            // Play the teleport sound only for the players involved — not server-wide.
+            // The materialization sound goes to the target (whose unit appears next to
+            // them); the requester also hears it as confirmation when they're a
+            // different player (commander/admin teleport).
+            try
+            {
+                if (req.Target != null)
+                    _ = AudioHelper.PlaySoundFile(SoundFile, req.Target);
+                if (req.Requester != null && req.Requester != req.Target)
+                    _ = AudioHelper.PlaySoundFile(SoundFile, req.Requester);
+            }
             catch (Exception ex) { MelonLogger.Warning("HeavyTeleporter sound failed: " + ex.Message); }
 
             string vehName = bestVehicle.ObjectInfo != null ? bestVehicle.ObjectInfo.DisplayName : "Vehicle";
