@@ -23,13 +23,13 @@ Once a team reaches the configured tech tier, any Sol or Centauri soldier can `/
 
 ## Pickup constraint
 
-> Only vehicles **standing in front of the team's Ultra Heavy Factory** are eligible for teleport (i.e. lined up on the UHF staging pad). The `/st` menu only lists vehicles inside that pickup area. Park the vehicle you want delivered on the UHF pad first.
+> Only vehicles parked **at the team's Ultra Heavy Factory default waypoint** (the spot in front of the UHF where freshly-produced vehicles spawn / queue) are eligible for teleport. The `/st` menu only lists vehicles inside that pickup area. Park the vehicle you want delivered on the UHF's default waypoint first — typically the small staging area directly in front of the factory door.
 
 ## Player commands
 
 | Command | Effect |
 |--|--|
-| `/st` | Request a heavy vehicle teleport to you. Opens a menu of eligible team vehicles parked at the UHF |
+| `/st` | Request a heavy vehicle teleport to you. Opens a menu of eligible team vehicles parked at the team's Ultra Heavy Factory default waypoint |
 | `/st <N>` | Confirm pick N from the menu shown by `/st` |
 | `/st status` | Read-only summary: enabled/disabled, your team's required tech tier, charges remaining, recharge timer |
 
