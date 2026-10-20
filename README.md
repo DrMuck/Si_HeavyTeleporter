@@ -54,7 +54,7 @@ All save back to JSON automatically.
 
 | Command | Effect |
 |--|--|
-| `/st on` / `/st off` | Master toggle |
+| `/st on` / `/st off` | Master toggle (also `/st enabled on\|off`) |
 | `/st status` | Live summary (also available to players) |
 | `/st charges <N>` | Max charges per team |
 | `/st cd <s>` | Recharge time |

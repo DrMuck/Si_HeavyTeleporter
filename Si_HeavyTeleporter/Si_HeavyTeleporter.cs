@@ -13,7 +13,7 @@
    /st status       — show current settings
 
  Admin commands:
-   /st on|off       — toggle
+   /st on|off       — toggle (also /st enabled on|off)
    /st charges N    — max charges per volley
    /st cd N         — recharge time in seconds
    /st tier N       — tech tier required
@@ -30,12 +30,12 @@ using System.Globalization;
 using System.IO;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(Si_HeavyTeleporter.HeavyTeleporter), "Heavy Teleporter", "1.3.0", "schwe")]
+[assembly: MelonInfo(typeof(Si_HeavyTeleporter.HeavyTeleporter), "Heavy Teleporter", "1.3.1", "schwe")]
 [assembly: MelonGame("Bohemia Interactive", "Silica")]
 
 namespace Si_HeavyTeleporter
 {
-    public class HeavyTeleporter : MelonMod
+    public partial class HeavyTeleporter : MelonMod
     {
         // --- Config JSON ---
         class TeleporterConfig
@@ -167,7 +167,7 @@ namespace Si_HeavyTeleporter
         {
             _configPath = ConfigPaths.Resolve("HeavyTeleporter_Config.json");
             LoadConfig();
-            MelonLogger.Msg("Heavy Teleporter v1.3.0 loaded! (Sol + Centauri)");
+            MelonLogger.Msg("Heavy Teleporter v1.3.1 loaded! (Sol + Centauri)");
             GameEvents.OnGameEnded += OnGameEnded;
         }
 
@@ -201,6 +201,12 @@ namespace Si_HeavyTeleporter
 
                 switch (sub)
                 {
+                    case "enabled": // Si_ModUI switch text "/st enabled on|off"; the plain "on"/"off" words keep working
+                        if (!isAdmin) { Deny(caller); return; }
+                        if (valStr.Equals("on", StringComparison.OrdinalIgnoreCase)) { _enabled = true; SaveConfig(); Reply(caller, "Heavy Teleporter: ON"); }
+                        else if (valStr.Equals("off", StringComparison.OrdinalIgnoreCase)) { _enabled = false; SaveConfig(); Reply(caller, "Heavy Teleporter: OFF"); }
+                        else Reply(caller, "Heavy Teleporter: " + (_enabled ? "ON" : "OFF") + " (usage: /st enabled on|off)");
+                        return;
                     case "on":
                         if (!isAdmin) { Deny(caller); return; }
                         _enabled = true; SaveConfig(); Reply(caller, "Heavy Teleporter: ON"); return;
