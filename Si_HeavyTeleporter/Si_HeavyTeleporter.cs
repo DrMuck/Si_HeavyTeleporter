@@ -30,7 +30,7 @@ using System.Globalization;
 using System.IO;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(Si_HeavyTeleporter.HeavyTeleporter), "Heavy Teleporter", "1.2.0", "schwe")]
+[assembly: MelonInfo(typeof(Si_HeavyTeleporter.HeavyTeleporter), "Heavy Teleporter", "1.3.0", "schwe")]
 [assembly: MelonGame("Bohemia Interactive", "Silica")]
 
 namespace Si_HeavyTeleporter
@@ -165,9 +165,9 @@ namespace Si_HeavyTeleporter
 
         public override void OnInitializeMelon()
         {
-            _configPath = Path.Combine("UserData", "HeavyTeleporter_Config.json");
+            _configPath = ConfigPaths.Resolve("HeavyTeleporter_Config.json");
             LoadConfig();
-            MelonLogger.Msg("Heavy Teleporter v1.2.0 loaded! (Sol + Centauri)");
+            MelonLogger.Msg("Heavy Teleporter v1.3.0 loaded! (Sol + Centauri)");
             GameEvents.OnGameEnded += OnGameEnded;
         }
 

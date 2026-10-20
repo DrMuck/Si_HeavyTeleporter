@@ -65,7 +65,7 @@ All save back to JSON automatically.
 
 ## Configuration
 
-`UserData/HeavyTeleporter_cfg/Si_HeavyTeleporter_Config.json` — auto-created on first run with defaults.
+`UserData/cfg/HeavyTeleporter/HeavyTeleporter_Config.json` — auto-created on first run with defaults.
 
 Key fields:
 - `MaxCharges` — per-team shared pool
