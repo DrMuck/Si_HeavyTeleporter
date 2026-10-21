@@ -30,7 +30,7 @@ using System.Globalization;
 using System.IO;
 using UnityEngine;
 
-[assembly: MelonInfo(typeof(Si_HeavyTeleporter.HeavyTeleporter), "Heavy Teleporter", "1.3.1", "schwe")]
+[assembly: MelonInfo(typeof(Si_HeavyTeleporter.HeavyTeleporter), "Heavy Teleporter", "1.3.2", "schwe")]
 [assembly: MelonGame("Bohemia Interactive", "Silica")]
 
 namespace Si_HeavyTeleporter

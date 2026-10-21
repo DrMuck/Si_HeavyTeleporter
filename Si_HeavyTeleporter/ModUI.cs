@@ -13,6 +13,7 @@ namespace Si_HeavyTeleporter
             {
                 string F(float v) => v.ToString("0.##", CultureInfo.InvariantCulture);
                 return ModUI.ModUIExport.New()
+                    .Enabled(_enabled)
                     .Info("Heavy Teleporter " + (_enabled ? "ON" : "OFF") + " | tier >= " + TechTier + " | charges " + MaxCharges + " | recharge " + F(RechargeTime) + " s")
                     .Info("countdown " + F(Countdown) + " s | radius " + F(TeleportRadius) + " m | min enemy base distance " + F(MinEnemyBaseDistance) + " m")
                     .Action("/st", "Call vehicle", "Opens the menu of vehicles waiting at the Ultra Heavy Factory. Arguments: the menu number to confirm a pick, or for commanders a player name or x z.")
